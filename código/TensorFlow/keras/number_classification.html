@@ -1,67 +1,13 @@
-
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta charset="utf-8" />
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<link rel="icon" href="../../assets/img/favicon.ico">
-
-<title>Apresentação - TensorFlow</title>
+<title>number_classification</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/simple.css" id="theme">
 
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-
-</script>
-
-<!--[if lt IE 9]>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -13114,278 +13060,538 @@ ul.typeahead-list  > li > a.pull-right {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
-}
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-div.text_cell.rendered .rendered_html {
-  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
-  overflow-y: hidden;
-}
-a.anchor-link {
-  /* There is still an anchor, we are only hidding it */
-  display: none;
-}
-.rendered_html p {
-  text-align: inherit;
-}
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
+body {
+  overflow: visible;
+  padding: 8px;
 }
 
-/* Alteração */
-.reveal {
-  background-image: url("../../assets/img/background-apresentacao.png");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
+div#notebook {
+  overflow: visible;
+  border-top: none;
+}@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
-
-
-<body>
-
-
-<div class="reveal">
-<div class="slides">
-<section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<img src="../../assets/img/tensorflow-python.png" alt="TensorFlow" style="width: 100%;">
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="O-que-&#233;-TensorFlow?" style="text-align: center;">O que &#233; TensorFlow?<a class="anchor-link" href="#O-que-&#233;-TensorFlow?">&#182;</a></h1>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#8226;-&#201;-uma-biblioteca-open-source-de-computa&#231;&#227;o-n&#250;merica-usando-fluxos-de-grafos,-que-permite-a-contru&#231;&#227;o-de-modelos-de-aprendizado-de-m&#225;quina.">&#8226; &#201; uma biblioteca open-source de computa&#231;&#227;o n&#250;merica usando fluxos de grafos, que permite a contru&#231;&#227;o de modelos de aprendizado de m&#225;quina.<a class="anchor-link" href="#&#8226;-&#201;-uma-biblioteca-open-source-de-computa&#231;&#227;o-n&#250;merica-usando-fluxos-de-grafos,-que-permite-a-contru&#231;&#227;o-de-modelos-de-aprendizado-de-m&#225;quina.">&#182;</a></h3><h3 id="&#8226;-Desenvolvido-pela-equipe-'Google-Brain'-que-&#233;-uma-equipe-de-pesquisa-de-intelig&#234;ncia-artificial-no-Google.-E-lan&#231;ado-em-novembro-de-2015.">&#8226; Desenvolvido pela equipe 'Google Brain' que &#233; uma equipe de pesquisa de intelig&#234;ncia artificial no Google. E lan&#231;ado em novembro de 2015.<a class="anchor-link" href="#&#8226;-Desenvolvido-pela-equipe-'Google-Brain'-que-&#233;-uma-equipe-de-pesquisa-de-intelig&#234;ncia-artificial-no-Google.-E-lan&#231;ado-em-novembro-de-2015.">&#182;</a></h3>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="O-que-s&#227;o-Tensores?" style="text-align: center;">O que s&#227;o Tensores?<a class="anchor-link" href="#O-que-s&#227;o-Tensores?">&#182;</a></h1>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Matem&#225;ticamente,-um-tensor-&#233;-um-vetor-N-dimensional,-significando-que-um-tensor-pode-ser-usado-para-representar-conjuntos-de-dados-N-dimensionais.">Matem&#225;ticamente, um tensor &#233; um vetor N-dimensional, significando que um tensor pode ser usado para representar conjuntos de dados N-dimensionais.<a class="anchor-link" href="#Matem&#225;ticamente,-um-tensor-&#233;-um-vetor-N-dimensional,-significando-que-um-tensor-pode-ser-usado-para-representar-conjuntos-de-dados-N-dimensionais.">&#182;</a></h3>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Ao-utilizarmos-TensorFlow-temos-fun&#231;&#245;es-representadas-por-n&#243;s-e-os-dados-que-ser&#227;o-operadas-por-arestas-de-um-grafo(tensors).-Com-isso-temos-um-flow-de-dados-sendo-trafegado-por-uma-rede-de-fun&#231;&#245;es.">Ao utilizarmos TensorFlow temos fun&#231;&#245;es representadas por n&#243;s e os dados que ser&#227;o operadas por arestas de um grafo(tensors). Com isso temos um flow de dados sendo trafegado por uma rede de fun&#231;&#245;es.<a class="anchor-link" href="#Ao-utilizarmos-TensorFlow-temos-fun&#231;&#245;es-representadas-por-n&#243;s-e-os-dados-que-ser&#227;o-operadas-por-arestas-de-um-grafo(tensors).-Com-isso-temos-um-flow-de-dados-sendo-trafegado-por-uma-rede-de-fun&#231;&#245;es.">&#182;</a></h3>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Como-instalar-o-TensorFlow?" style="text-align: center;">Como instalar o TensorFlow?<a class="anchor-link" href="#Como-instalar-o-TensorFlow?">&#182;</a></h1>
-</div>
-</div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="&#8226;-Fa&#231;a-o-download-do-Anaconda.">&#8226; Fa&#231;a o download do <a href="https://www.anaconda.com/distribution/">Anaconda</a>.<a class="anchor-link" href="#&#8226;-Fa&#231;a-o-download-do-Anaconda.">&#182;</a></h3><h3 id="&#8226;-Crie-um-ambiente-com-todas-as-bibliotecas-obrigat&#243;rias.">&#8226; Crie um ambiente com todas as bibliotecas obrigat&#243;rias.<a class="anchor-link" href="#&#8226;-Crie-um-ambiente-com-todas-as-bibliotecas-obrigat&#243;rias.">&#182;</a></h3>
-<br>
-<div class="highlight"><pre><span></span>conda create -n tensorflow <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.5
-</pre></div>
-<div class="highlight"><pre><span></span>activate tensorflow
-</pre></div>
-<div class="highlight"><pre><span></span>pip install tensorflow
-</pre></div>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Refer&#234;ncias" style="text-align: center;">Refer&#234;ncias<a class="anchor-link" href="#Refer&#234;ncias">&#182;</a></h1>
-</div>
-</div>
-</div></section></section>
-</div>
-</div>
-
-<script>
-
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/head.min.js",
-      "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/js/reveal.js"
-    ],
-
-    function(head, Reveal){
-
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-
-            transition: "slide",
-
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } }
-            ]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
         }
+    });
+    </script>
+    <!-- End of mathjax configuration --></head>
+<body>
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
 
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Importando-bibliotecas-e-m&#243;dulos">Importando bibliotecas e m&#243;dulos<a class="anchor-link" href="#Importando-bibliotecas-e-m&#243;dulos">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
 
-    }
+    </div>
+</div>
+</div>
 
-);
-</script>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Carregando-os-dados">Carregando os dados<a class="anchor-link" href="#Carregando-os-dados">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span> <span class="c1"># images 28x28</span>
+</pre></div>
 
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Separando-em-treinamento-e-teste">Separando em treinamento e teste<a class="anchor-link" href="#Separando-em-treinamento-e-teste">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Explorando-os-dados">Explorando os dados<a class="anchor-link" href="#Explorando-os-dados">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Exibindo o primeiro elemento do treino</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">binary</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+wWArzGoGmwAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Imprimindo o primeiro elemento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   3  18  18  18 126 136
+  175  26 166 255 247 127   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  30  36  94 154 170 253 253 253 253 253
+  225 172 253 242 195  64   0   0   0   0]
+ [  0   0   0   0   0   0   0  49 238 253 253 253 253 253 253 253 253 251
+   93  82  82  56  39   0   0   0   0   0]
+ [  0   0   0   0   0   0   0  18 219 253 253 253 253 253 198 182 247 241
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  80 156 107 253 253 205  11   0  43 154
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0  14   1 154 253  90   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0 139 253 190   2   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0  11 190 253  70   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0  35 241 225 160 108   1
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0  81 240 253 253 119
+   25   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0  45 186 253 253
+  150  27   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0  16  93 252
+  253 187   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0 249
+  253 249  64   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0  46 130 183 253
+  253 207   2   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0  39 148 229 253 253 253
+  250 182   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0  24 114 221 253 253 253 253 201
+   78   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0  23  66 213 253 253 253 253 198  81   2
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0  18 171 219 253 253 253 253 195  80   9   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0  55 172 226 253 253 253 253 244 133  11   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0 136 253 253 253 212 135 132  16   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]
+ [  0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+    0   0   0   0   0   0   0   0   0   0]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Pr&#233;-processando-os-dados-de-entrada">Pr&#233;-processando os dados de entrada<a class="anchor-link" href="#Pr&#233;-processando-os-dados-de-entrada">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x_train</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Definindo-a-arquitetura-do-modelo">Definindo a arquitetura do modelo<a class="anchor-link" href="#Definindo-a-arquitetura-do-modelo">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Rodando-o-modelo">Rodando o modelo<a class="anchor-link" href="#Rodando-o-modelo">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;sparse_categorical_crossentropy&#39;</span><span class="p">,</span>
+             <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+             <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ajustando-o-modelo-de-treinamento">Ajustando o modelo de treinamento<a class="anchor-link" href="#Ajustando-o-modelo-de-treinamento">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/3
+60000/60000 [==============================] - 8s 138us/sample - loss: 0.2657 - acc: 0.9221
+Epoch 2/3
+60000/60000 [==============================] - 8s 134us/sample - loss: 0.1065 - acc: 0.9670
+Epoch 3/3
+60000/60000 [==============================] - 8s 136us/sample - loss: 0.0729 - acc: 0.9770
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[0]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tensorflow.python.keras.callbacks.History at 0x7f2b0b5edfd0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Avaliando-o-modelo-com-os-dados-de-teste">Avaliando o modelo com os dados de teste<a class="anchor-link" href="#Avaliando-o-modelo-com-os-dados-de-teste">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">val_loss</span><span class="p">,</span> <span class="n">val_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10000/10000 [==============================] - 1s 53us/sample - loss: 0.0905 - acc: 0.9723
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Perda:&#39;</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precisão:&#39;</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Perda: 0.09054432909358293
+Precisão: 0.9723
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Salvando-o-modelo">Salvando o modelo<a class="anchor-link" href="#Salvando-o-modelo">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[0]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;num_reader.model&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
 </body>
+
+ 
 
 
 </html>
