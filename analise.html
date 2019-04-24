@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Seminário - Análise Exploratória</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/carousel.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+  </head>
+  <body>
+
+    <header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="index.html" title="Seminário" style="font-family: 'Pacifico', cursive;">Seminário</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="analise.html"><small>Análise Exploratória</small></a>
+					</li>  
+          <li class="nav-item">
+            <a class="nav-link" href="tensorflow.html"><small>TensorFlow</small></a>
+          </li>           
+				</ul>
+
+				<span style="float: right;">
+					<img src="assets/img/python.png" alt="Python" width="30px">
+				</span>
+			</div>
+		</nav>
+    </header>
+
+    <main role="main">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="assets/img/analise-slide.jpg" alt="Análise de dados em Python">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container marketing">
+
+        
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="card text-white bg-info mb-3" style="max-width: 100%;" data-toggle="modal" data-target="#analiseDadosCsvPronatec" >
+              <div class="card-header"><span><img src="assets/img/analysis.png" alt=""></span> Análise Exploratória</div>
+              <div class="card-body">
+                <h6 class="card-title text-center"> PRONATEC - Unidades da Rede Federal de EPCT </h6>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="card text-white bg-info mb-3" style="max-width: 100%;" data-toggle="modal" data-target="#analiseDadosCsvCirurgias">
+              <div class="card-header"><span><img src="assets/img/analysis.png" alt=""></span> Análise Exploratória</div>
+              <div class="card-body">
+                <h6 class="card-title text-center">CIRUGIAS ELETIVA E DE EMERGENCIA JANEIRO 2017 (DF)</h6>
+              </div>
+            </div>
+          </div>
+
+         
+
+
+          
+        </div>
+
+      </div>
+
+
+      <!-- FOOTER -->
+      <footer class="container" style="margin-top: 150px;">
+        <p class="float-right"><a href="#"><img src="assets/img/back_to_top.png" alt="Back to top" width="40px"></a></p>
+        <p><a href="https://valerianiceria.com.br/" class="stretched-link">Valéria Nicéria</a> &copy; 2019</p>
+      </footer>
+    </main>
+
+
+    <!-- Modal - CSV Pronatec -->
+    <div class="modal fade bd-example-modal-lg" id="analiseDadosCsvPronatec" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-info">
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/analysis1.png" alt=""></span> PRONATEC - Unidades da Rede Federal de EPCT</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <iframe src="notebook_pronatec.html" frameborder="0" style="width:100%; height: 360px;"></iframe>
+
+            <hr class="featurette-divider" style="margin-bottom: 8px; margin-top: 5px;">
+
+            <div class="row">
+              <div class="col-md-3">
+                Retirado os dados: 
+              </div>
+
+              <div class="col-md-7">
+                <a href="http://dados.gov.br/dataset/mec-pronatec-eptc/resource/de158421-c281-4a02-9d71-6cf8c283b585" class="badge badge-light" target="_blank" title="Site onde foi retirado os dados">dados.gov.br</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                Download CSV: 
+              </div>
+
+              <div class="col-md-7">
+                <a href="http://informacao.mec.gov.br/bilibs/PDA/PRONATEC/PDA_UNIDADES_RF_EPCT_CSV.csv" title="http://informacao.mec.gov.br/bilibs/PDA/PRONATEC/PDA_UNIDADES_RF_EPCT_CSV.csv"><img src="assets/img/download.png" alt="Download" title="Download CSV"></a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                Programa utilizado:
+              </div>
+
+              <div class="col-md-7">
+                <a href="https://www.anaconda.com/download/" target="_blank"><img src="assets/img/logo-anaconda.png" alt="Anaconda" width="70px" title="Anaconda"></a>
+                <img src="assets/img/jupyter.png" alt="Jupyter Notebook" width="70px" title="Jupyter Notebook">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Modal - CSV Cirurgias -->
+    <div class="modal fade bd-example-modal-lg" id="analiseDadosCsvCirurgias" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-info">
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/analysis1.png" alt=""></span> CIRUGIAS ELETIVA E DE EMERGENCIA JANEIRO 2017 (DF)</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <iframe src="notebook_cirurgia_eletiva.html" frameborder="0" style="width: 100%; height: 360px;"></iframe>
+
+
+            <hr class="featurette-divider" style="margin-bottom: 8px; margin-top: 5px;">
+
+            <div class="row">
+              <div class="col-md-3">
+                Retirado os dados: 
+              </div>
+
+              <div class="col-md-7">
+                <a href="http://dados.df.gov.br/dataset/cirurgias-ambulatoriais/resource/fe9f0505-b8fa-4db7-99c4-642b31c14b6b" class="badge badge-light" target="_blank" title="Site onde foi retirado os dados">dados.df.gov.br</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                Download CSV: 
+              </div>
+
+              <div class="col-md-7">
+                <a href="http://dados.df.gov.br/dataset/7344b2cc-9494-4ca0-80e2-dbf6567d0fe8/resource/fe9f0505-b8fa-4db7-99c4-642b31c14b6b/download/sih-janeiro-2017-cirurgias-eletiva-e-emergencia.csv" title="http://dados.df.gov.br/dataset/7344b2cc-9494-4ca0-80e2-dbf6567d0fe8/resource/fe9f0505-b8fa-4db7-99c4-642b31c14b6b/download/sih-janeiro-2017-cirurgias-eletiva-e-emergencia.csv"><img src="assets/img/download.png" alt="Download" title="Download CSV"></a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                Programa utilizado:
+              </div>
+
+              <div class="col-md-7">
+                <a href="https://www.anaconda.com/download/" target="_blank"><img src="assets/img/logo-anaconda.png" alt="Anaconda" width="70px" title="Anaconda"></a>
+                <img src="assets/img/jupyter.png" alt="Jupyter Notebook" width="70px" title="Jupyter Notebook">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/holder.min.js"></script>
+  </body>
+</html>

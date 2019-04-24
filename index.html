@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+
+    <title>Seminário - Python</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/carousel.css" rel="stylesheet">
+
+    <!-- Highlight -->
+    <link rel="stylesheet" href="assets/highlight/styles/github.css">
+	<script src="assets/highlight/highlight.pack.js"></script>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"> 
+
+    <style>
+		.accordion {
+		    background-color: #eee;
+		    color: #444;
+		    cursor: pointer;
+		    padding: 18px;
+		    width: 100%;
+		    border: none;
+		    text-align: left;
+		    outline: none;
+		    font-size: 15px;
+		    transition: 0.4s;
+		}
+
+		.active_accordion, .accordion:hover {
+		    background-color: #ccc;
+		}
+
+		.accordion:after {
+		    content: '\002B';
+		    color: #777;
+		    font-weight: bold;
+		    float: right;
+		    margin-left: 5px;
+		}
+
+		.active_accordion:after {
+		    content: "\2212";
+		}
+
+		.panel {
+		    padding: 0 18px;
+		    background-color: white;
+		    max-height: 0;
+		    overflow: hidden;
+		    transition: max-height 0.2s ease-out;
+		}
+
+		.rounded-lg {
+			border-radius: 50px;
+		}
+	</style>
+  </head>
+  <body>
+
+    <header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="index.html" title="Seminário" style="font-family: 'Pacifico', cursive;">Seminário</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="analise.html"><small>Análise Exploratória</small></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="tensorflow.html"><small>TensorFlow</small></a>
+					</li>        
+				</ul>
+
+				<span style="float: right;">
+					<img src="assets/img/python.png" alt="Python" width="30px">
+				</span>
+			</div>
+		</nav>
+    </header>
+
+    <main role="main">
+
+    	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	        <ol class="carousel-indicators">
+	          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	        </ol>
+	        <div class="carousel-inner">
+	          <div class="carousel-item active">
+	            <img class="first-slide" src="assets/img/seminario.jpg" alt="Seminário">
+	          </div>
+	        </div>
+	    </div>
+     
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row" style="margin-bottom: 200px;">
+			<img class="col-sm-4 rounded-lg" src="assets/img/python-basico.png" alt="Python Básico" data-toggle="modal" data-target="#pythonBasico">
+
+			<a href="analise.html" class="col-sm-4">
+				<img class="col-lg-12 rounded-lg" src="assets/img/analise-exploratoria-python.png" alt="Python Análise Exploratória">
+			</a>
+            
+            <a href="tensorflow.html" class="col-sm-4">
+				<img class="col-lg-12 rounded-lg" src="assets/img/tensorflow.png" alt="TensorFlow + Python">
+			</a>
+
+        </div><!-- /.row -->
+        
+
+      </div><!-- /.container -->
+
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-right"><a href="#"><img src="assets/img/back_to_top.png" alt="Back to top" width="40px"></a></p>
+        <p><a href="https://valerianiceria.com.br/" class="stretched-link">Valéria Nicéria</a> &copy; 2019</p>
+      </footer>
+    </main>
+
+
+
+
+    <!-- Modal - instalandoPython -->
+	<div class="modal fade bd-example-modal-lg" id="instalandoPython" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header text-white bg-info">
+	        <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/python-icon.png" alt=""></span> Instalando Python Windows</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        Download: <a href="https://www.python.org/downloads/" target="_blank"><img src="assets/img/foreign.png" alt="Download Python" title="Download Python"></a><br/>
+
+	        <img src="assets/img/python_Install.gif" alt="Instalando Python Windows" title="Instalando Python Windows">
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<!-- Modal - Python Básico -->
+	<div class="modal fade bd-example-modal-lg" id="pythonBasico" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header text-white bg-info">
+	        <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/py.png" alt=""></span> Python Básico</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	<button class="accordion">Comentários</button>
+			<div class="panel">
+<pre><code class="python">
+# Comentário de uma linha
+
+"""
+Comentário em bloco de
+várias linhas
+utiliza 3 aspas
+"""
+</code></pre>
+			</div>
+
+			<button class="accordion">Variáveis</button>
+			<div class="panel">
+<pre>
+<code class="python">
+# Boleanos
+verdadeiro = True
+falso = False
+# Float
+valor = 12.23
+# String
+frase = 'Sou uma string'
+# Int
+numero = 15
+</code>
+</pre>
+</div>
+
+			<button class="accordion">Entradas e Saída</button>
+			<div class="panel">
+<pre><code class="python">
+num1 = int(input('Digite um número: '))
+num2 = int(input('Digite outro número: '))
+
+soma = num1 + num2
+print('A soma entre {} e {} é igual a {}'.format(num1, num2, soma))
+</code></pre>
+			</div>
+
+			<button class="accordion">Operadores Aritméticos</button>
+			<div class="panel">
+<pre><code class="python">
+n1 = int(input('Digite um número: '))
+n2 = int(input('Digite outro número: '))
+
+adicao = n1 + n2
+print('Adição = {}'.format(adicao), end=' ')
+
+subtracao = n1 - n2
+print('Subtração = {}'.format(subtracao))
+
+multiplicacao = n1 * n2
+print('multiplicação = {}'.format(multiplicacao))
+
+divisao = n1 / n2
+print('Divisão = {:.3f}'.format(divisao))
+
+potencia = n1 ** n2
+print('Potência = \n {}'.format(potencia))
+
+divisao_inteira = n1 // n2
+print('Divisão Inteira = {}'.format(divisao_inteira))
+
+resto_divisao = n1 % n2
+print('Resto da divisão = {}'.format(resto_divisao))
+</code></pre>
+			</div>
+
+
+			<button class="accordion">Operadores Lógicos</button>
+			<div class="panel">
+<pre><code class="python">
+and =>  e
+or => ou
+not 
+</code></pre>
+			</div>
+
+			<button class="accordion">Utilizando módulos</button>
+			<div class="panel">
+
+			<p class="font-italic text-success">
+				# importa todas as funções do módulo <br/>
+				# import math <br/>
+				# raiz = math.sqrt(num) <br/>
+
+				# importa uma função específica
+			</p >
+
+<pre><code class="python">
+from math import sqrt
+
+num = int(input('Digite um número: '))
+
+raiz = sqrt(num)
+print('A raiz quadrada de {} é igual a {:.2f}'.format(num, raiz))
+</code></pre>
+			</div>
+
+
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+	<!-- Modal - Instalando o Anaconda -->
+	<div class="modal fade bd-example-modal-lg" id="instalandoAnaconda" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header text-white bg-info">
+	        <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/anaconda-icon.png" alt=""></span> Instalando o Anaconda</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	Download: <a href="https://www.anaconda.com/download/#windows" target="_blank"><img src="assets/img/foreign.png" alt="Download Anaconda" title="Download Anaconda"></a><br/>
+
+	        <center>
+	        	<img src="assets/img/installing-anaconda-python.gif" alt="Instalando Anaconda Windows" title="Instalando Anaconda Windows">
+	        </center>	
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/holder.min.js"></script>
+
+    <script>
+    	$('#myModal').on('shown.bs.modal', function () {
+		  $('#myInput').trigger('focus')
+		})
+    </script>
+
+    <script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+		    this.classList.toggle("active_accordion");
+		    var panel = this.nextElementSibling;
+		    if (panel.style.maxHeight){
+		      panel.style.maxHeight = null;
+		    } else {
+		      panel.style.maxHeight = panel.scrollHeight + "px";
+		    } 
+		  });
+		}
+	</script>
+
+	<!-- Initialize highlight -->
+	<script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</code>
