@@ -80,8 +80,9 @@
           <div class="col-lg-12">
             <div class="collapse multi-collapse" id="multiCollapseExample3">
               <div class="row mt-3">
-                <div class="col-lg-3"><a class="text-white m-1 p-3 btn btn-info mx-auto d-block" style="width: 230px;"><img src="assets/img/coding.png" class="float-left"><small class="pl-2 badge text-wrap"> Hello World</small></a></div>
-                <div class="col-lg-3"><a class="text-white m-1 p-3 btn btn-info mx-auto d-block" style="width: 230px;"><img src="assets/img/coding.png" class="float-left"><small class="pl-2 badge text-wrap"> Hello World</small></a></div>
+                <div class="col-lg-3"><a class="text-white m-1 p-3 btn btn-info mx-auto d-block" style="width: 230px;" data-toggle="modal" data-target="#classificacaoNumeros"><img src="assets/img/coding.png" class="float-left"><small class="pl-2 badge text-wrap">Classificação de <br> números</small></a></div>
+                <div class="col-lg-3"><a class="text-white m-1 p-3 btn btn-info mx-auto d-block" style="width: 230px;" data-toggle="modal" data-target="#classificacaoFashion"><img src="assets/img/coding.png" class="float-left"><small class="pl-2 badge text-wrap">Classificação de <br> roupas e sapatos</small></a></div>
+                <div class="col-lg-3"><a class="text-white m-1 p-3 btn btn-info mx-auto d-block" style="width: 230px;" data-toggle="modal" data-target="#keras_pre_training"><img src="assets/img/coding.png" class="float-left"><small class="pl-2 badge text-wrap">Modelo pré treinado</small></a></div>
               </div>
             </div>
           </div>
@@ -104,7 +105,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header text-white bg-info">
-            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Hello World</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Hello World <a href="https://colab.research.google.com/drive/1L5TqfPFbXS-HiimtUrUPf3lPSpdjVQod" target="__blank" style="margin-left: 10px; color: white;"><i class="fas fa-link"></i></a></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -122,7 +123,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header text-white bg-info">
-            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Operações Matemáticas com tensores</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Operações Matemáticas com tensores <a href="https://colab.research.google.com/drive/1T8hUm5BBtanAqEsfn5_e6D4-W9pEjgyM" target="__blank" style="margin-left: 10px; color: white;"><i class="fas fa-link"></i></a></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -139,7 +140,7 @@
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header text-white bg-info">
-            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Modelo de Regressão Linear</h5>
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Modelo de Regressão Linear <a href="https://colab.research.google.com/drive/1foUtr8Atbru4Ju5ljvOy1j98XKQH0HnS" target="__blank" style="margin-left: 10px; color: white;"><i class="fas fa-link"></i></a></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -150,6 +151,60 @@
         </div>
       </div>
     </div>
+
+
+    <!-- Modal - Classificação de números -->
+    <div class="modal fade bd-example-modal-lg" id="classificacaoNumeros" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-info">
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Classificação de números <a href="https://colab.research.google.com/drive/1PO32GNNQLYLj5wzNC9E0nrCjwhWfAdmN" target="__blank" style="margin-left: 10px; color: white;"><i class="fas fa-link"></i></a></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe src="código/TensorFlow/keras/number_classification.html" frameborder="0" style="width:100%; height: 360px;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal - Classificação Fashion -->
+    <div class="modal fade bd-example-modal-lg" id="classificacaoFashion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-info">
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Classificação de roupas e sapatos <a href="https://colab.research.google.com/drive/13ttAQSMXdhy7ZpQAwqFShi8xSB4Ng4Ib" target="__blank" style="margin-left: 10px; color: white;"><i class="fas fa-link"></i></a></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe src="código/TensorFlow/keras/basic_classification.html" frameborder="0" style="width:100%; height: 360px;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal - Pré treinado -->
+    <div class="modal fade bd-example-modal-lg" id="keras_pre_training" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-white bg-info">
+            <h5 class="modal-title" id="exampleModalLabel"><span><img src="assets/img/tensorflow-logo.png" width="50px"></span>Keras - Modelo pré treinado <a href="https://colab.research.google.com/drive/1mVPaXm7yKouPnhxjmlbQ0tP1v3jKmfG8" target="__blank" style="margin-left: 10px; color: white;"><i class="fas fa-link"></i></a></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <iframe src="código/TensorFlow/keras/keras_pre_training.html" frameborder="0" style="width:100%; height: 360px;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
     <!-- ================================================== -->
