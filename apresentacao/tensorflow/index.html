@@ -8,9 +8,9 @@
 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="../../assets/img/favicon.ico">
 
-
-<title>apresentacao slides</title>
+<title>Apresentação - TensorFlow</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -18,6 +18,8 @@
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/simple.css" id="theme">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -37,7 +39,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13225,6 +13227,13 @@ a.anchor-link {
 {
   background: #727272 !important;
 }
+
+/* Alteração */
+.reveal {
+  background-image: url("../../assets/img/background-apresentacao.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
@@ -13242,16 +13251,131 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="TensorFlow">TensorFlow<a class="anchor-link" href="#TensorFlow">&#182;</a></h1><h3 id="Usando-Python">Usando Python<a class="anchor-link" href="#Usando-Python">&#182;</a></h3>
+<img src="../../assets/img/tensorflow-python.png" alt="TensorFlow" style="width: 100%;">
 </div>
 </div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="O-que-&#233;-TensorFlow?">O que &#233; TensorFlow?<a class="anchor-link" href="#O-que-&#233;-TensorFlow?">&#182;</a></h1>
+<h1 id="O-que-&#233;-TensorFlow?" style="text-align: center;">O que &#233; TensorFlow?<a class="anchor-link" href="#O-que-&#233;-TensorFlow?">&#182;</a></h1>
 </div>
 </div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#8226;-&#201;-uma-biblioteca-open-source-de-computa&#231;&#227;o-n&#250;merica-usando-fluxos-de-grafos,-que-permite-a-contru&#231;&#227;o-de-modelos-de-aprendizado-de-m&#225;quina.">&#8226; &#201; uma biblioteca open-source de computa&#231;&#227;o n&#250;merica usando fluxos de grafos, que permite a contru&#231;&#227;o de modelos de aprendizado de m&#225;quina.<a class="anchor-link" href="#&#8226;-&#201;-uma-biblioteca-open-source-de-computa&#231;&#227;o-n&#250;merica-usando-fluxos-de-grafos,-que-permite-a-contru&#231;&#227;o-de-modelos-de-aprendizado-de-m&#225;quina.">&#182;</a></h3><h3 id="&#8226;-Desenvolvido-pela-equipe-'Google-Brain'-que-&#233;-uma-equipe-de-pesquisa-de-intelig&#234;ncia-artificial-no-Google.-E-lan&#231;ado-em-novembro-de-2015.">&#8226; Desenvolvido pela equipe 'Google Brain' que &#233; uma equipe de pesquisa de intelig&#234;ncia artificial no Google. E lan&#231;ado em novembro de 2015.<a class="anchor-link" href="#&#8226;-Desenvolvido-pela-equipe-'Google-Brain'-que-&#233;-uma-equipe-de-pesquisa-de-intelig&#234;ncia-artificial-no-Google.-E-lan&#231;ado-em-novembro-de-2015.">&#182;</a></h3>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img src="../../assets/img/ia.png" style="width: 100%">
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="O-que-s&#227;o-Tensores?" style="text-align: center;">O que s&#227;o Tensores?<a class="anchor-link" href="#O-que-s&#227;o-Tensores?">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Matem&#225;ticamente,-um-tensor-&#233;-um-vetor-N-dimensional,-significando-que-um-tensor-pode-ser-usado-para-representar-conjuntos-de-dados-N-dimensionais.">Matem&#225;ticamente, um tensor &#233; um vetor N-dimensional, significando que um tensor pode ser usado para representar conjuntos de dados N-dimensionais.<a class="anchor-link" href="#Matem&#225;ticamente,-um-tensor-&#233;-um-vetor-N-dimensional,-significando-que-um-tensor-pode-ser-usado-para-representar-conjuntos-de-dados-N-dimensionais.">&#182;</a></h3>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img src="../../assets/img/tensor.png" style="width: 100%">
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img src="../../assets/img/tensor_num.png" style="width: 100%">
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ao-utilizarmos-TensorFlow-temos-fun&#231;&#245;es-representadas-por-n&#243;s-e-os-dados-que-ser&#227;o-operadas-por-arestas-de-um-grafo(tensors).-Com-isso-temos-um-flow-de-dados-sendo-trafegado-por-uma-rede-de-fun&#231;&#245;es.">Ao utilizarmos TensorFlow temos fun&#231;&#245;es representadas por n&#243;s e os dados que ser&#227;o operadas por arestas de um grafo(tensors). Com isso temos um flow de dados sendo trafegado por uma rede de fun&#231;&#245;es.<a class="anchor-link" href="#Ao-utilizarmos-TensorFlow-temos-fun&#231;&#245;es-representadas-por-n&#243;s-e-os-dados-que-ser&#227;o-operadas-por-arestas-de-um-grafo(tensors).-Com-isso-temos-um-flow-de-dados-sendo-trafegado-por-uma-rede-de-fun&#231;&#245;es.">&#182;</a></h3>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<img src="../../assets/img/flowtensor.png" style="width: 100%">
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Como-instalar-o-TensorFlow?" style="text-align: center;">Como instalar o TensorFlow?<a class="anchor-link" href="#Como-instalar-o-TensorFlow?">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#8226;-Fa&#231;a-o-download-do-Anaconda.">&#8226; Fa&#231;a o download do <a href="https://www.anaconda.com/distribution/">Anaconda</a>.<a class="anchor-link" href="#&#8226;-Fa&#231;a-o-download-do-Anaconda.">&#182;</a></h3><h3 id="&#8226;-Crie-um-ambiente-com-todas-as-bibliotecas-obrigat&#243;rias.">&#8226; Crie um ambiente com todas as bibliotecas obrigat&#243;rias.<a class="anchor-link" href="#&#8226;-Crie-um-ambiente-com-todas-as-bibliotecas-obrigat&#243;rias.">&#182;</a></h3><div class="highlight" style="margin-top: 10px;"><pre><span></span>conda create -n tensorflow <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.5
+</pre></div>
+<div class="highlight"><pre><span></span>activate tensorflow
+</pre></div>
+<div class="highlight"><pre><span></span>pip install tensorflow
+</pre></div>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+  <a href="https://colab.research.google.com/" target="_blank"><img src="../../assets/img/colab.png" style="width: 70%; padding: 30px"></a>
+</center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+  <img src="../../assets/img/keras.png" style="width: 70%; padding: 30px">
+</center>
+<h3>Projetado para permitir a experimentação rápida com redes neurais profundas, ele se concentra em ser fácil de usar, modular e extensível.</h3>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<center>
+  <img src="../../assets/img/dog_vs_cat.gif" style="width: 100%">
+</center>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<center>
+  <img src="../../assets/img/fim.gif" style="width: 50%;">
+</center>
+</div>
+</div>
+</div>
+</div>
+
 </div></section></section>
 </div>
 </div>
