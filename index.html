@@ -113,7 +113,7 @@
 
         <!-- Three columns of text below the carousel -->
         <div class="row" style="margin-bottom: 200px;">
-			<img class="col-sm-4 rounded-lg" src="assets/img/python-basico.png" alt="Python Básico" data-toggle="modal" data-target="#pythonBasico">
+			<img class="col-sm-4 rounded-lg" style="height: 50%;" src="assets/img/python-basico.png" alt="Python Básico" data-toggle="modal" data-target="#pythonBasico">
 
 			<a href="analise.html" class="col-sm-4">
 				<img class="col-lg-12 rounded-lg" src="assets/img/analise-exploratoria-python.png" alt="Python Análise Exploratória">
@@ -253,15 +253,12 @@ not
 			<button class="accordion">Utilizando módulos</button>
 			<div class="panel">
 
-			<p class="font-italic text-success">
-				# importa todas as funções do módulo <br/>
-				# import math <br/>
-				# raiz = math.sqrt(num) <br/>
-
-				# importa uma função específica
-			</p >
-
 <pre><code class="python">
+# importa todas as funções do módulo
+import math
+raiz = math.sqrt(num)
+-----
+# importa uma função específica
 from math import sqrt
 
 num = int(input('Digite um número: '))
